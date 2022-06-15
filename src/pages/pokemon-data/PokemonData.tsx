@@ -1,8 +1,12 @@
 import React from 'react';
-import { useQuery } from 'react-query';
+import { useQuery, useQueryClient } from 'react-query';
 const pokemonData = () => {
-  const { data } = useQuery('pokemons');
-  return <div>{JSON.stringify(data)}</div>;
+  const cache = useQuery('pokemons', {
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+  });
+  console.log(cache);
+  return <div>{JSON.stringify(cache)}</div>;
 };
 
 export default pokemonData;
