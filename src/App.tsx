@@ -10,10 +10,11 @@ function App() {
     <div className='App'>
       <Suspense fallback={<div>...loading</div>}>
         <Routes>
-          <Route path='/' element={<div>Hp !</div>} />
-          <Route path='pokemon-data' element={<PokemonData />} />
-
-          <Route />
+          <Route
+            path='/'
+            element={<Navigate to='/pokemon-data' replace={true} />}
+          />
+          <Route path='/pokemon-data' element={<PokemonData />} />
         </Routes>
       </Suspense>
     </div>
