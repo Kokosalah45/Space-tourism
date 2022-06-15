@@ -19,6 +19,6 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitAny": true
   },
-  "include": ["src"],
+  "include": ["src/**/*.{tsx , ts}"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
