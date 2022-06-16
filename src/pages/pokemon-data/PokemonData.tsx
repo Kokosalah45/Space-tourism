@@ -5,8 +5,10 @@ const pokemonData = () => {
     refetchOnWindowFocus: false,
     refetchOnMount: false,
   });
-  console.log(cache);
-  return <div>{JSON.stringify(cache)}</div>;
+  console.log(cache.data);
+  return (
+    <div className='font-bold'>{JSON.stringify(cache.data, null, 200)}</div>
+  );
 };
 
 export default pokemonData;
