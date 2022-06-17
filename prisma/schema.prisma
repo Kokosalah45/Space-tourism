@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model ages {
+  name String? @db.VarChar(128)
+  age  Int?
+
+  @@ignore
+}
+
+model pg4e_debug {
+  id         Int       @id @default(autoincrement())
+  query      String?   @db.VarChar(4096)
+  result     String?   @db.VarChar(4096)
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model pg4e_meta {
+  id         Int       @id @default(autoincrement())
+  keystr     String?   @unique @db.VarChar(128)
+  valstr     String?   @db.VarChar(4096)
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+  updated_at DateTime? @db.Timestamp(6)
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model pg4e_result {
+  id         Int       @default(autoincrement())
+  link_id    Int?      @unique
+  score      Float?
+  title      String?   @db.VarChar(4096)
+  note       String?   @db.VarChar(4096)
+  debug_log  String?   @db.VarChar(8192)
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+  updated_at DateTime? @db.Timestamp(6)
+
+  @@ignore
+}
