@@ -9,10 +9,10 @@ datasource db {
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model ages {
+  id   Int     @default(autoincrement()) @id 
   name String? @db.VarChar(128)
   age  Int?
 
-  @@ignore
 }
 
 model pg4e_debug {

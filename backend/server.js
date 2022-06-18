@@ -15,8 +15,9 @@ app.get('/2', (req, res) => {
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-app.get('/3', (req, res) => {
+app.get('/3', async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify({ a: 3 }, null, 3));
+  const data = await prisma.pg4e_debug.findMany();
+  res.end(JSON.stringify({ d: data }, null, 3));
 });
-app.listen(3000, () => console.log('Example app listening on port 3001!'));
+app.listen(3001, () => console.log('Example app listening on port 3001!'));

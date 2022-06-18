@@ -1,14 +1,13 @@
-import React from 'react';
 import { useQuery, useQueryClient } from 'react-query';
+import { useRef } from 'react';
+import { getPokemons } from '../../hooks/usePrefetchPokemon';
 const pokemonData = () => {
-  const cache = useQuery('pokemons', {
+  const { data, refetch } = useQuery('pokemons', getPokemons, {
     refetchOnWindowFocus: false,
     refetchOnMount: false,
   });
-  console.log(cache.data);
-  return (
-    <div className='font-bold'>{JSON.stringify(cache.data, null, 200)}</div>
-  );
+
+  return <div className='font-bold'>{JSON.stringify(data, null, 200)}</div>;
 };
 
 export default pokemonData;
