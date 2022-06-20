@@ -1,24 +1,23 @@
 import React, { lazy, Suspense, useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { useQuery } from 'react-query';
-import { usePrefetchPokemon } from './hooks';
+import { Routes, Route } from 'react-router-dom';
 
-const PokemonData = lazy(() => import('./pages/pokemon-data'));
+import Root from './pages/root';
+import NavBar from './components/navbar';
+const HomePage = lazy(() => import('./pages/home-page'));
 function App() {
-  const [num, setNum] = useState(0);
-  usePrefetchPokemon();
   return (
     <div className='App'>
-      <Suspense fallback={<div>...loading</div>}>
+      <NavBar />
+      <Suspense fallback={null}>
         <Routes>
-          <Route path='/' element={<div>HI !</div>} />
-          <Route path='/pokemon-data' element={<PokemonData />} />
+          <Route path='/' element={<Root />}>
+            <Route path='/home' element={<HomePage />} />
+            <Route path='/technology' element={<HomePage />} />
+            <Route path='/crew' element={<HomePage />} />
+            <Route path='/destination' element={<HomePage />} />
+          </Route>
         </Routes>
       </Suspense>
-      <div>{num}</div>
-      <button className='p-7 bg-red-600 m-auto' onClick={() => setNum(num + 1)}>
-        inc
-      </button>
     </div>
   );
 }

@@ -17,7 +17,11 @@
     "jsx": "preserve",
     "incremental": false,
     "noUncheckedIndexedAccess": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src/**/*.{tsx , ts}"],
   "references": [{ "path": "./tsconfig.node.json" }]

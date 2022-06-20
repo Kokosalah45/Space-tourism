@@ -1,15 +1,22 @@
+import axios from 'axios';
 import { useEffect, useRef } from 'react';
 import { useQueryClient } from 'react-query';
-const API_KEY_WEATHER = 'af8abd840232e16b66c8e7cea4aad763';
+
+import api from '../api';
 const getPokemons = async () => {
-  const jsonData = await fetch(`https://pokeapi.co/api/v2/pokemon/ditto`);
-  const res = await jsonData.json();
-  return res;
+  try {
+    const res = await api.get('/');
+    console.log(res);
+    return await res.data;
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error.message);
+  }
 };
-const preFetch = async (queryClient) => {
+const preFetch = async (queryClient): Promise<void> => {
   await queryClient.prefetchQuery('pokemons', getPokemons);
 };
-const usePrefetchPokemon = async () => {
+const usePrefetchPokemon = async (): Promise<void> => {
   const queryClientRef = useRef(useQueryClient());
   useEffect(() => {
     preFetch(queryClientRef.current);
