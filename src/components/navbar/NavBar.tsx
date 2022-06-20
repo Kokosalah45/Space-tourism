@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoImg from '../../assets/shared/logo.svg';
+import { logoImg } from '../../assets';
 const NavBar = () => {
   return (
     <header className=' fixed w-full top-0 lg:mt-6 lg:ml-4 transition-all'>
