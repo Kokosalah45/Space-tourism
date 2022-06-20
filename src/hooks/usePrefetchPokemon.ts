@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useRef } from 'react';
-import { useQueryClient } from 'react-query';
+import { QueryClient, useQueryClient } from 'react-query';
 
 import api from '../api';
 const getPokemons = async () => {
@@ -13,7 +13,7 @@ const getPokemons = async () => {
     throw new Error(error.message);
   }
 };
-const preFetch = async (queryClient): Promise<void> => {
+const preFetch = async (queryClient: QueryClient): Promise<void> => {
   await queryClient.prefetchQuery('pokemons', getPokemons);
 };
 const usePrefetchPokemon = async (): Promise<void> => {
