@@ -1,22 +1,39 @@
-import { Outlet, useNavigate, useMatch, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { BackgroundImagesSources } from '../../assets';
 
 const Root = () => {
-  const isMatch = useMatch('/');
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const pathString = pathname.slice(1);
-  console.log(pathString);
-  const routeImage = `bg-${pathString}-background-sm md:bg-${pathString}-background-md lg:bg-${pathString}-background-lg`;
+  const [currentInnerWidthIndex, setCurrentInnerWidthIndex] = useState(2);
+
   useEffect(() => {
-    if (isMatch) {
-      navigate('/home', { replace: true });
+    if (pathname === '/') {
+      navigate('/home');
     }
-  }, [isMatch]);
+  }, [pathname]);
+
+  useEffect(() => {
+    const windowResizeListener = window.addEventListener('resize', (e) => {
+      if (window.innerWidth < 568) {
+        setCurrentInnerWidthIndex(0);
+      } else if (window.innerWidth >= 568 && window.innerWidth < 768) {
+        setCurrentInnerWidthIndex(1);
+      } else {
+        setCurrentInnerWidthIndex(2);
+      }
+    });
+    return () => windowResizeListener;
+  }, [currentInnerWidthIndex]);
 
   return (
     <main
-      className={`text-white pt-[96px] lg:pt-[120px] min-h-screen ${routeImage} bg-no-repeat bg-cover`}
+      style={{
+        backgroundImage: `url(${
+          BackgroundImagesSources[pathname.slice(1)]?.[currentInnerWidthIndex]
+        })`,
+      }}
+      className='transition-all duration-[30ms] bg-black text-white pt-[96px] lg:pt-[120px]   min-h-screen bg-no-repeat bg-cover'
     >
       <Outlet />
     </main>
