@@ -21,10 +21,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["node"]
   },
 
   "references": [{ "path": "./tsconfig.node.json" }],
-  "include": ["src/**/*"],
+  "include": ["src/**/*.{tsx,ts}"],
   "exclude": ["node_modules", "src/**/*.spec.ts"]
 }
