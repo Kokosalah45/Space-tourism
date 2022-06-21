@@ -1,6 +1,5 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-
 import { useWindowSize } from './hooks';
 import Root from './pages/root';
 import NavBar from './components/navbar';

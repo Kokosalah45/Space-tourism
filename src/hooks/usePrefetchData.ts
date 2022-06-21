@@ -16,12 +16,12 @@ const getPokemons = async () => {
 const preFetch = async (queryClient: QueryClient): Promise<void> => {
   await queryClient.prefetchQuery('pokemons', getPokemons);
 };
-const usePrefetchPokemon = async (): Promise<void> => {
+const usePrefetchData = async (): Promise<void> => {
   const queryClientRef = useRef(useQueryClient());
   useEffect(() => {
     preFetch(queryClientRef.current);
   }, []);
 };
 
-export default usePrefetchPokemon;
+export default usePrefetchData;
 export { getPokemons };

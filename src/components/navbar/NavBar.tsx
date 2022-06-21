@@ -21,7 +21,7 @@ const NavBar = () => {
   }, [windowSize]);
 
   return (
-    <header className=' fixed w-full top-0 lg:mt-6 lg:ml-4 transition-all'>
+    <header className=' z-[999] fixed w-full top-0 lg:mt-6 lg:ml-4 transition-all'>
       <div className=' flex items-center  h-[96px]'>
         <div className='bg-transparent basis-[45%] flex-shrink h-full flex items-center'>
           <Link to='/home'>
