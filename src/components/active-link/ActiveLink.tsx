@@ -11,10 +11,10 @@ const ActiveLink = ({ to, textContent }: propTypes) => {
   const { pathname } = useLocation();
   const isMatch = pathname === to;
   return (
-    <li className='p-5 relative sm:p-3 sm:flex sm:items-center'>
+    <li className='px-12 py-2 relative sm:p-3 sm:flex sm:items-center'>
       <Link to={to}>{textContent}</Link>
       <div
-        className={`absolute h-full w-[4px] right-0 top-0   sm:w-full sm:bottom-0 sm:top-[unset] sm:right-[unset] sm:left-0 sm:h-[4px] transition-all ${
+        className={`absolute h-full w-[2px] right-0 top-0   sm:w-full sm:bottom-0 sm:top-[unset] sm:right-[unset] sm:left-0 sm:h-[2px] transition-all ${
           !isMatch && ' h-0 sm:w-0'
         }  bg-white  rounded-sm`}
       ></div>

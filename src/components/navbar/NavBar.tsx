@@ -15,7 +15,7 @@ const NavBar = () => {
           <div className=' h-px flex-grow  translate-x-[1.35rem] z-50 hidden lg:block bg-[#979797] opacity-40'></div>
         </div>
         <nav className=' basis-[55%]   h-full'>
-          <ul className=' text-white text-center sm:translate-x-0 flex flex-col fixed bg-blurry-nav justify-center   lg:backdrop-blur-[1.5rem] right-0   sm:flex-row bg sm:static sm:justify-evenly   font-barlow_condensed uppercase tracking-[.3rem]    h-full text-base px-5'>
+          <ul className='sm:px-5 gap-8 sm:gap-0 text-white text-center sm:translate-x-0 flex flex-col fixed bg-blurry-nav justify-center   lg:backdrop-blur-[1.5rem] right-0   sm:flex-row bg sm:static sm:justify-evenly   font-barlow_condensed uppercase tracking-[.3rem]    h-full text-base '>
             <ActiveLink to='/home' textContent='home' />
             <ActiveLink to='/destination' textContent='destination' />
             <ActiveLink to='/crew' textContent='crew' />
