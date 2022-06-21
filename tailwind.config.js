@@ -23,9 +23,39 @@ module.exports = {
           "url('./src/assets/crew/background-crew-desktop.jpg')",
       },
       colors: {
-        'blurry-nav': 'hsl(0 0% 100% / 0.1)',
-        'rich-black': 'hsl(230°, 35%, 7%)',
-        'lavender-blue': 'hsl(231°, 77%, 90%)',
+        'blurry-nav': 'hsl(var(--clr-nav)/ 0.1)',
+        'lavender-blue': 'rgb(208, 214, 249)',
+        'rich-black': 'rgb(11, 13, 23)',
+      },
+      fontSize: {
+        'heading-xl': '9.375rem',
+        'heading-lg': '6.25rem',
+        'heading-md': '3.5rem',
+        'heading-sm': '2rem',
+        'heading-xs': [
+          '1.75rem',
+          {
+            letterSpacing: '4.75',
+          },
+        ],
+        'subheading-lg': '1.75rem',
+        'subheading-md': [
+          '1.142857rem',
+          {
+            letterSpacing: '2.35',
+          },
+        ],
+        'subheading-normal': [
+          '1rem',
+          {
+            letterSpacing: '2.7',
+          },
+        ],
+        body: '1.125rem',
+      },
+      fontFamily: {
+        barlow_condensed: ['"Barlow Condensed"', 'sans-serif'],
+        bellefair: ['Bellefair', 'sans'],
       },
     },
   },

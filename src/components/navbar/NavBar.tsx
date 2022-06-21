@@ -1,19 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { logoImg } from '../../assets';
+import ActiveLink from '../active-link';
 const NavBar = () => {
   return (
     <header className=' fixed w-full top-0 lg:mt-6 lg:ml-4 transition-all'>
-      <div className=' flex items-center m-auto  h-[96px]'>
-        <div className='flex-grow bg-transparent h-full flex items-center'>
+      <div className=' flex items-center  h-[96px]'>
+        <div className='bg-transparent basis-[45%] flex-shrink h-full flex items-center'>
           <Link to='/home'>
-            <figure className='p-4'>
-              <img src={logoImg} className='h-12 w-12' alt='' />
+            <figure className='m-4 h-12 w-12 '>
+              <img src={logoImg} className='' alt='' />
             </figure>
           </Link>
-          <div className='flex-grow h-px w-px translate-x-10 z-40 hidden lg:block bg-[#979797] opacity-40'></div>
+          <div className=' h-px flex-grow  translate-x-[1.35rem] z-50 hidden lg:block bg-[#979797] opacity-40'></div>
         </div>
-        <nav className='flex-grow bg-blurry-nav backdrop-blur-lg h-full'></nav>
+        <nav className=' basis-[55%]   h-full'>
+          <ul className=' text-white text-center sm:translate-x-0 flex flex-col fixed bg-blurry-nav justify-center   lg:backdrop-blur-[1.5rem] right-0   sm:flex-row bg sm:static sm:justify-evenly   font-barlow_condensed uppercase tracking-[.3rem]    h-full text-base px-5'>
+            <ActiveLink to='/home' textContent='home' />
+            <ActiveLink to='/destination' textContent='destination' />
+            <ActiveLink to='/crew' textContent='crew' />
+            <ActiveLink to='/technology' textContent='technology' />
+          </ul>
+        </nav>
       </div>
     </header>
   );
