@@ -1,2 +1,3 @@
 import usePrefetchPokemon from './usePrefetchPokemon';
-export { usePrefetchPokemon };
+import useWindowSize from './useWindowSize';
+export { usePrefetchPokemon, useWindowSize };

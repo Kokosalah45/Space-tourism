@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "netbuild": "netlify build",
+    "netdep": "netlify deploy --prod"
   },
   "dependencies": {
     "@prisma/client": "^3.15.2",

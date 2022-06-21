@@ -1,11 +1,14 @@
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { BackgroundImagesSources } from '../../assets';
+import { useWindowSizeStore } from '../../global-state';
 
 const Root = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [currentInnerWidthIndex, setCurrentInnerWidthIndex] = useState(2);
+  const { windowSize }: { windowSize?: number } = useWindowSizeStore(
+    (state) => state
+  );
 
   useEffect(() => {
     if (pathname === '/') {
@@ -13,24 +16,13 @@ const Root = () => {
     }
   }, [pathname]);
 
-  useEffect(() => {
-    const windowResizeListener = window.addEventListener('resize', (e) => {
-      if (window.innerWidth < 568) {
-        setCurrentInnerWidthIndex(0);
-      } else if (window.innerWidth >= 568 && window.innerWidth < 768) {
-        setCurrentInnerWidthIndex(1);
-      } else {
-        setCurrentInnerWidthIndex(2);
-      }
-    });
-    return () => windowResizeListener;
-  }, [currentInnerWidthIndex]);
-
   return (
     <main
       style={{
         backgroundImage: `url(${
-          BackgroundImagesSources[pathname.slice(1)]?.[currentInnerWidthIndex]
+          windowSize !== undefined
+            ? BackgroundImagesSources[pathname.slice(1)]?.[windowSize]
+            : null
         })`,
       }}
       className='transition-all duration-[30ms] bg-black text-white pt-[96px] lg:pt-[120px]   min-h-screen bg-no-repeat bg-cover'
