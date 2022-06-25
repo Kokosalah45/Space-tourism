@@ -1,26 +1,13 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
+
   theme: {
     extend: {
-      backgroundImage: {
-        'home-background-sm':
-          "url('./src/assets/home/background-home-mobile.jpg')",
-        'home-background-md':
-          "url('./src/assets/home/background-home-tablet.jpg')",
-        'home-background-lg':
-          "url('./src/assets/home/background-home-desktop.jpg')",
-        'destination-background-sm':
-          "url('./src/assets/destination/background-destination-mobile.jpg')",
-        'destination-background-md':
-          "url('./src/assets/destination/background-destination-tablet.jpg')",
-        'destination-background-lg':
-          "url('./src/assets/destination/background-destination-desktop.jpg')",
-        'crew-background-sm':
-          "url('./src/assets/crew/background-crew-mobile.jpg')",
-        'crew-background-md':
-          "url('./src/assets/crew/background-crew-tablet.jpg')",
-        'crew-background-lg':
-          "url('./src/assets/crew/background-crew-desktop.jpg')",
+      gridTemplateColumns: {
+        'main-layout-mobile':
+          'minmax(2em , 1fr) minmax(0,60em) minmax(2em,1fr);',
+        'main-layout-sm':
+          'minmax(2em , 1fr) repeat(2,minmax(0,30em)) minmax(2em,1fr);',
       },
       colors: {
         'blurry-nav': 'hsl(var(--clr-nav)/ 0.1)',
@@ -28,6 +15,8 @@ module.exports = {
         'rich-black': 'rgb(11, 13, 23)',
       },
       fontSize: {
+        'dynamic-heading-xl': 'clamp(3rem , 30vw , 9.375rem)',
+
         'heading-xl': '9.375rem',
         'heading-lg': '6.25rem',
         'heading-md': '3.5rem',
@@ -40,7 +29,7 @@ module.exports = {
         ],
         'subheading-lg': '1.75rem',
         'subheading-md': [
-          '1.142857rem',
+          '1.25rem',
           {
             letterSpacing: '2.35',
           },

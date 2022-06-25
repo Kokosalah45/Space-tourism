@@ -17,14 +17,14 @@ const Root = () => {
   }, [pathname]);
 
   // style={{
-  //   backgroundImage: `url(${
-  //     windowSize !== undefined
-  //       ? BackgroundImagesSources[pathname.slice(1)]?.[windowSize]
-  //       : null
-  //   })`,
+  //   backgroundImage: `image-set(
+  //     url(${
+  //     BackgroundImagesSources[pathname.slice(1)]?.[2]
+  //   }) 1x,)`,
   // }}
+
   return (
-    <main className='transition-all duration-[30ms] relative z-[99] bg-black text-white pt-[96px] lg:pt-[120px]   min-h-screen bg-no-repeat bg-cover'>
+    <main className='transition-all grid  duration-[30ms] relative z-[99] bg-black text-white pt-[96px] lg:pt-[120px]   min-h-screen bg-no-repeat bg-cover'>
       <Outlet />
       <picture className=' select-none fixed top-0 right-0 z-[-99]'>
         <source
